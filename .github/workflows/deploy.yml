@@ -9,12 +9,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Update ubuntu
-      - run: sudo apt update && sudo apt upgrade -y
-      - run: sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
-      - name: Install node
-      - run: curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-      - run: sudo apt -y install nodejs
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12'
       - name: Install npm packages
       - run: npm install --quiet
       - name: Deploy site
