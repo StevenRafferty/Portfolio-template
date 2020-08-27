@@ -9,10 +9,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12'
-      - name: Install npm packages
-      - run: npm install --quiet
-      - name: Deploy site
-      - run: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12'
+    - name: Install npm packages
+      run: npm install --quiet
+    - name: Deploy site
+      run: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
